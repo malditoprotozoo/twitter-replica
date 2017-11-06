@@ -1,8 +1,13 @@
 body {
 	margin: 0;
 	background-color: red; /* color temporal */
+	font-family: "Open Sans", sans-serif;
+  	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
 }
 
+/* Le quito los márgenes y paddings a los elementos h */
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
@@ -22,5 +27,11 @@ nav {
 	width: 290px;
 	height: 210px;
 	background-color: white;
+	float: left;
+	margin-right: 50px;
+}
+
+#tweet {
 	display: inline-block;
+	background-color: white;
 }

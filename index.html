@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Twitter</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Ubuntu:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Open+Sans|Open+Sans+Condensed:400, 700" rel="stylesheet">
 </head>
 <body>
 	<div id="container">
@@ -12,9 +12,13 @@
 			<h1>Twitter</h1>
 		</nav>
 
-		<section id="profile">Profile</section>
-		<section id="tweet"></section>
-		<section id="trends"></section>
+		<section id="profile">
+			<h2>Profile</h2>
+		</section>
+		<section id="tweet">
+			<textarea name="" id="estado" rows="5" placeholder="What's happening?"></textarea>
+			<button onclick="tweetPublish()" id="tweetBtn">Tweet</button>
+		</section>
 		<section id="tweets"></section>
 
 	</div>
