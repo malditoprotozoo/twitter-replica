@@ -1,5 +1,9 @@
 function tweetPublish() {
-	var textTweet = document.getElementById("estado").value;	
+	// Tomar texto ingresado
+	var textTweet = document.getElementById("estado").value;
+	// Limpiar el área luego de que el tweet se envía
+	document.getElementById("estado").value = "";
+	
 	var tweets = document.getElementById("tweets");
 	var containerTweets = document.createElement("article");
 	var paragraph = document.createElement("p");

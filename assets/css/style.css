@@ -1,6 +1,8 @@
 body {
 	margin: 0;
-	background-color: red; /* color temporal */
+	background-image: url('../images/beautiful-lake.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
 	font-family: "Open Sans", sans-serif;
   	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -24,14 +26,38 @@ nav {
 }
 
 #profile {
-	width: 290px;
+	width: 400px;
 	height: 210px;
 	background-color: white;
 	float: left;
+	margin-left: 50px;
 	margin-right: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 5px;
 }
 
 #tweet {
+	width: 400px;
+	height: 210px;
 	display: inline-block;
 	background-color: white;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	border-radius: 3px;
+}
+
+#tweet-container {
+	padding: 10px;
+}
+
+#tweets {
+	margin-left: 50px;
+}
+
+#tweets article {
+	background-color: white;
+	width: 830px;
+	border-radius: 5px;
+	padding: 10px;
 }
