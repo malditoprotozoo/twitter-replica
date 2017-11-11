@@ -34,19 +34,19 @@ function countChars(textbox, counter, max) {
     spanCounter.textContent = count;
     // Si el contador es igual o menor a cero
     if (count <= 0) {
-        spanCounter.style.color = "red";
+        spanCounter.style.color = "#B90504";
     };
     // Si el contador es mayor a 0, pero menor o igual a 10
     if (count > 0 && count <= 10) {
-        spanCounter.style.color = "orange";
+        spanCounter.style.color = "#FA6900";
     };
     // Si el contador es mayor a 10, pero menor o igual a 20
     if (count > 10 && count <= 20) {
-        spanCounter.style.color = "yellow";
+        spanCounter.style.color = "#FFBF00";
     };
     // Si el contador es mayor a 20
     if (count > 20) {
-        spanCounter.style.color = "black";
+        spanCounter.style.color = "#008E09";
     };
 
     // Si el contador es distinto de 140 y mayor a cero, el botón está habilitado
@@ -95,7 +95,7 @@ function tweetPublish() {
         // Añadiendo la foto de perfil
 
         var profilePicture = document.createElement("img");
-        profilePicture.setAttribute("src", "assets/images/profile-popcorn.png");
+        profilePicture.setAttribute("src", "assets/images/profile-medieval-pic.png");
         profilePicture.classList.add("profile-pic-in-tweet");
         containerTweet.insertBefore(profilePicture, containerName);
 
@@ -142,14 +142,3 @@ function tweetPublish() {
         myModal.style.display = "none";
     };
 };
-
-// Función que desactiva el botón si el área de texto está vacía
-
-// tweetHere.addEventListener("focus", function() {
-//     if (tweetHere.value.length === 0) {
-//         publishButton.setAttribute("disabled", "disabled");
-//     } else {
-
-//     }
-// });
-

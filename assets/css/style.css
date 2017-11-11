@@ -12,6 +12,15 @@ body {
 	font-family: "Open Sans", sans-serif;
 }
 
+a {
+	color: #1DA1F2;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
 #nav-bar {
 	width: 100%;
 	height: 50px;
@@ -42,6 +51,7 @@ body {
 	color: #1DA1F2;
 	font-size: 21px;
 	margin-top: 14px;
+	cursor: pointer;
 }
 
 #nav-left {
@@ -60,6 +70,12 @@ body {
 	font-weight: 700;
 	display: block;
 	margin-right: 14px;
+	padding-bottom: 14px;
+}
+
+#nav-left ul li a:hover {
+	color: #1da1f2;
+	border-bottom: 2px solid #1da1f2;
 }
 
 #nav-left ul li span {
@@ -208,7 +224,7 @@ body {
 	border-radius: 50%;
 	position: absolute;
 	background-color: white;
-	background-image: url('../images/profile-popcorn.png');
+	background-image: url('../images/profile-medieval-pic.png');
 	background-origin: content-box;
 	background-size: cover;
 	top: 230px;
@@ -226,12 +242,51 @@ body {
 
 #profile {
 	width: 290px;
-	/* height: 100%; */
-	height: 500px;
-	background-color: red;
+	height: auto;
+	background-color: transparent;
 	display: inline-block;
 	margin-left: 90px;
-	margin-top: 20px;
+	margin-top: 40px;
+}
+
+#about-me span {
+	display: block;
+}
+
+#about-me a:hover {
+	text-decoration: underline;
+}
+
+#title-name a {
+	text-decoration: none;
+	color: #14171A;
+	font-size: 19px;
+}
+
+#nick a {
+	text-decoration: none;
+	color: #657786;
+	font-size: 14px;
+}
+
+#nick {
+	margin-bottom: 15px;
+}
+
+#bio {
+	color: #14171A;
+	font-size: 14px;
+	margin-bottom: 15px;
+}
+
+#web, #joined, #birthday {
+	color: #657786;
+	font-size: 14px;
+}
+
+#web .icon-link, #joined .icon-calendar-o, #birthday .icon-birthday-cake {
+	display: inline-block;
+	margin-right: 10px;
 }
 
 #tweets {
@@ -335,6 +390,11 @@ body {
 	margin-top: 10px;
 }
 
+#counter {
+	font-weight: 700;
+	margin-left: 20px;
+}
+
 #publish-tweet {
 	float: right;
 	margin-right: 12px;
@@ -353,7 +413,8 @@ body {
 	padding: 20px;
 	padding-bottom: 40px;
 	background-color: white;
-	border-bottom: 1px solid #e6ecf0;
+	border-bottom: 1px solid #E6ECF0;
+	word-wrap: break-word;
 }
 
 .tweeted:hover {
@@ -385,6 +446,7 @@ body {
 .date {
 	color: #657786;
 	margin-right: 5px;
+	font-size: 12px;
 }
 
 .date::before {
