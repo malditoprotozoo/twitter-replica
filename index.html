@@ -1,33 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Twitter</title>
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Open+Sans|Open+Sans+Condensed:400, 700" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-	<div id="container">
-		<nav>
-			<h1>Twitter</h1>
-		</nav>
-
-		<section id="profile">
-			<h2>Profile</h2>
-		</section>
-
-		<section id="tweet">
-			<div id="tweet-container">
-				<textarea name="" id="estado" rows="5" placeholder="What's happening?" onFocus="countChars('estado', 'chars', 140)" onKeyDown="countChars('estado','chars', 140)" onKeyUp="countChars('estado','chars', 140)"></textarea>
-				<span id="chars">140</span>
-				<button onclick="tweetPublish()" id="tweetBtn">Tweet</button>
+	<head>
+		<meta charset="UTF-8">
+		<title>Twitter</title>
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700|Open+Sans|Open+Sans+Condensed:400, 700" rel="stylesheet">
+		<link rel="stylesheet" href="assets/fonts/icomoon/style.css">
+		<!-- Favicon generados con https://www.favicon-generator.org/ -->
+		<link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/faviconapple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+		<link rel="manifest" href="assets/images/favicon/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<script src="assets/js/moment.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="nav-bar">
+				<nav id="inner-nav">
+					<div id="icon-twitter">
+						<span class="icon-twitter"></span>
+					</div>
+					<div id="nav-left">
+						<ul>
+							<li><a href="index.html"><span class="icon-home"></span>Home</a></li>
+							<li><a href="#"><span class="icon-bell-o"></span>Notifications</a></li>
+							<li><a href="#"><span class="icon-envelope-o"></span>Messages</a></li>
+						</ul>
+					</div>
+					<div id="nav-right">
+						<div id="search">
+							<form action="/search" id="search-container">
+								<input type="text" id="search-input" autocomplete="off" spellcheck="false" placeholder="Search Twitter">
+								<span class="icon-search"></span>
+							</form>
+							<ul>
+								<li id="profile-pic"><a href="#"><img src="assets/images/profile-popcorn.png" alt="Profile Picture: Cartoon Eating Popcorn"></a></li>
+								<li><button id="tweet-button" class="blueish-button">Tweet</button></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
 			</div>
-		</section>
+			<!-- Este div contendrá todo lo que está abajo de la barra de navegación -->
+			<div id="page-outer">
+				<!-- Y este, todo el contenido que vaya agregando desde ahora -->
+				<div id="page-content">
+					<!-- Imagen de Portada -->
+					<div id="profile-info">
+						<div id="cover-image"></div>
+						<div id="profile-picture-full"></div>
+						<div id="profile-details">
+							<!-- <ul id="profile-nav">
+								<li>Tweets</li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul> -->
+						</div>
+					</div>
+					<div id="profile">
+						
+					</div>
 
-		<section id="tweets"></section>
+					<!-- Acá irán los tweets -->
+					<div id="tweets">
+					
+					</div>
 
-	</div>
-	<script src="assets/js/app.js"></script>
-</body>
+					<!-- Este es el modal que se abrirá al hacer clic en el botón Tweet -->
+
+					<div id="myModal" class="modal">
+						<!-- Contenido del modal -->
+						<div id="modal-content">
+							<div id="modal-header">
+								<span id="compose">Compose new Tweet</span>
+								<span class="icon-close" id="close-button"></span>
+							</div>
+							<div id="modal-body">
+								<textarea name="tweet-here" id="tweet-here" placeholder="What's happening?" onfocus="countChars('tweet-here', 'counter', 140)" onkeydown="countChars('tweet-here', 'counter', 140)" onkeyup="countChars('tweet-here', 'counter', 140)"></textarea>
+							</div>
+							<div id="modal-footer">
+								<span id="counter"></span>
+								<button id="publish-tweet" class="blueish-button" onclick="tweetPublish()">Tweet</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<script src="assets/js/app.js"></script>
+	</body>
 </html>
