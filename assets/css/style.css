@@ -408,6 +408,7 @@ a:hover {
 
 .tweeted {
 	width: 100%;
+	min-height: 105px;
 	height: auto;
 	display: block;
 	padding: 20px;

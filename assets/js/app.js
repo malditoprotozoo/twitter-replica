@@ -27,9 +27,10 @@ window.onclick = function(event) {
 };
 
 // Función que cuenta los caracteres, cambia los colores y deshabilita el botón
+// Agregué trim a esta y la siguiente función para que enter no cuente como un caracter
 
 function countChars(textbox, counter, max) {
-    var count = max - tweetHere.value.length;
+    var count = max - tweetHere.value.trim().length;
     // El texto del contador debe ser igual al número de caracteres menos 140
     spanCounter.textContent = count;
     // Si el contador es igual o menor a cero
@@ -63,7 +64,7 @@ function countChars(textbox, counter, max) {
 };
 
 function tweetPublish() {
-    var textTweet = tweetHere.value;
+    var textTweet = tweetHere.value.trim();
 
     if (textTweet.length !== 0) {
         var containerTweet = document.createElement("div");
