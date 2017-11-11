@@ -364,7 +364,8 @@ a:hover {
 
 #tweet-here {
 	width: 564px;
-	height: 80px;
+	min-height: 80px;
+	max-height: 350px;
 	padding: 8px;
 	resize: none;
 	overflow: hidden;
@@ -408,11 +409,10 @@ a:hover {
 
 .tweeted {
 	width: 100%;
-	min-height: 105px;
 	height: auto;
+	min-height: 100px;
 	display: block;
 	padding: 20px;
-	padding-bottom: 40px;
 	background-color: white;
 	border-bottom: 1px solid #E6ECF0;
 	word-wrap: break-word;
@@ -424,6 +424,7 @@ a:hover {
 
 .tweetItself {
 	display: block;
+	margin-bottom: 15px;
 }
 
 .name {
@@ -452,4 +453,13 @@ a:hover {
 
 .date::before {
 	content: " ·";
+}
+
+.tweet-icons {
+	color: #657786;
+	margin-right: 30px;
+}
+
+.icon-comment-o {
+	margin-left: 85px;
 }

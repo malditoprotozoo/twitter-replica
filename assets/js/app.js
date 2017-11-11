@@ -7,6 +7,8 @@ var myModal = document.getElementById("myModal");
 var tweetHere = document.getElementById("tweet-here");
 var tweetsSection = document.getElementById("tweets");
 var spanCounter = document.getElementById("counter");
+var name = document.getElementById("title-name").textContent;
+var nickname = document.getElementById("nick").textContent;
 
 // var tweetHereContent = document.getElementById("tweet-here").value;
 
@@ -47,7 +49,7 @@ function countChars(textbox, counter, max) {
     };
     // Si el contador es mayor a 20
     if (count > 20) {
-        spanCounter.style.color = "#008E09";
+        spanCounter.style.color = "#1DA1F2";
     };
 
     // Si el contador es distinto de 140 y mayor a cero, el botón está habilitado
@@ -57,11 +59,17 @@ function countChars(textbox, counter, max) {
     } else {
         publishButton.disabled = true;
     };
-
-    if (tweetHere.scrollTop != 0) {
-        tweetHere.style.height = tweetHere.scrollHeight + "px";
-    }
 };
+
+// Hacer que la área de texto se agrande y disminuya
+
+tweetHere.addEventListener("keydown", function() {
+    setTimeout(function() {
+        tweetHere.style.cssText = "height: auto;";
+        tweetHere.style.cssText = "height:" + tweetHere.scrollHeight + "px";
+    }, 0);
+});
+
 
 function tweetPublish() {
     var textTweet = tweetHere.value.trim();
@@ -78,17 +86,17 @@ function tweetPublish() {
         containerTweet.classList.add("tweeted");
 
         // Añadiendo el nombre
-        var name = document.createTextNode("Tori Rodríguez");
+        var nameText = document.createTextNode(name);
         var containerName = document.createElement("span");
-        containerName.appendChild(name);
+        containerName.appendChild(nameText);
         containerTweet.insertBefore(containerName, textTag);
 
         containerName.classList.add("name");
 
         // Añadiendo el nickname
-        var nickname = document.createTextNode("@virodriguezfe");
+        var nicknameText = document.createTextNode(nickname);
         var containerNickname = document.createElement("span");
-        containerNickname.appendChild(nickname);
+        containerNickname.appendChild(nicknameText);
         containerTweet.insertBefore(containerNickname, textTag);
 
         containerNickname.classList.add("nickname");
@@ -108,6 +116,7 @@ function tweetPublish() {
         
         var hour = date.getHours();
 
+        // Añadiendo ceros, en caso de que el número sea de un sólo dígito
         if (hour <= 9) {
             hour = "0" + hour.toString();
         } else {
@@ -137,9 +146,27 @@ function tweetPublish() {
 
         containerTweet.insertBefore(containerTime, textTag);
 
-        var containerNickname = document.createElement("span");
+        // Añadiendo icono de comentario
+        var comment = document.createElement("span");
+        comment.classList.add("icon-comment-o", "tweet-icons");
+        containerTweet.appendChild(comment);
+
+        // Añadiendo el icono de retweet
+        var retweet = document.createElement("span");
+        retweet.classList.add("icon-retweet", "tweet-icons");
+        containerTweet.appendChild(retweet);
+
+        // Añadiendo el corazón
+        var heart = document.createElement("span");
+        heart.classList.add("icon-heart-o", "tweet-icons");
+        containerTweet.appendChild(heart);
+
         // Limpiar el área luego de que el tweet se envía
         document.getElementById("tweet-here").value = "";
+        // Reiniciando el contador
+        spanCounter.innerHTML = 140;
+        spanCounter.style.color = "#1DA1F2";
+        // Haciendo desaparecer el modal
         myModal.style.display = "none";
     };
 };
