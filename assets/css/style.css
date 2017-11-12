@@ -38,6 +38,7 @@ a:hover {
 
 #nav-bar {
 	width: 100%;
+	min-width: 815px;
 	height: 50px;
 	position: fixed;
 	background-color: white;
@@ -224,6 +225,7 @@ a:hover {
 
 #cover-image {
 	width: 100%;
+	min-width: 815px;
 	height: 300px;
 	overflow: hidden;
 	background: url('../images/cover-image.png');
@@ -490,6 +492,7 @@ a:hover {
 .container-icons {
 	float: right;
 	margin-top: -15px;
+	margin-right: -180px;
 }
 
 .icon-heart.red {

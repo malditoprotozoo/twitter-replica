@@ -169,10 +169,18 @@ function tweetPublish() {
             dropdownMenu.classList.toggle("invisible-menu");
         });
 
+        // Si clickeas afuera del menú, este se cerrará
+
         window.addEventListener("mouseup", function(event) {
             if (event.target != dropdownMenu) {
                 dropdownMenu.classList.add("invisible-menu");
             }
+        });
+
+        // Añadiendo la función para eliminar un tweet
+
+        dropdownMenu.addEventListener("click", function() {
+            tweetsSection.removeChild(containerTweet);
         });
 
         // Añadiendo un contenedor para los íconos
