@@ -13,18 +13,20 @@ var nickname = document.getElementById("nick").textContent;
 // var tweetHereContent = document.getElementById("tweet-here").value;
 
 tweetButton.addEventListener("click", function() {
-        myModal.style.display = "block";
+    myModal.classList.toggle("invisible");
+    // myModal.style.opacity = "1";
+    // myModal.style.visibility = "visible";
 });
 
 
 closeIcon.addEventListener("click", function() {
-        myModal.style.display = "none";
+    myModal.classList.toggle("invisible");
 });
 
 // Para que el modal se cierre cuando haga click fuera del mismo
 window.onclick = function(event) {
     if (event.target == myModal) {
-        myModal.style.display = "none";
+        myModal.classList.toggle("invisible");
     }
 };
 
@@ -55,7 +57,7 @@ function countChars(textbox, counter, max) {
     // Si el contador es distinto de 140 y mayor a cero, el botón está habilitado
     if (count !== 140 && count >= 0) {
         publishButton.disabled = false;
-    // En caso contrario, está deshabilitado
+        // En caso contrario, está deshabilitado
     } else {
         publishButton.disabled = true;
     };
@@ -87,7 +89,7 @@ function tweetPublish() {
 
         // Añadiendo el nombre
         var nameText = document.createTextNode(name);
-        var containerName = document.createElement("span");
+        var containerName = document.createElement("a");
         containerName.appendChild(nameText);
         containerTweet.insertBefore(containerName, textTag);
 
@@ -113,7 +115,7 @@ function tweetPublish() {
         var day = date.getDate().toString();
         var month = date.getMonth().toString();
         var year = date.getFullYear().toString();
-        
+
         var hour = date.getHours();
 
         // Añadiendo ceros, en caso de que el número sea de un sólo dígito
@@ -146,20 +148,61 @@ function tweetPublish() {
 
         containerTweet.insertBefore(containerTime, textTag);
 
+        // Añadiendo la flechita hacía abajo xd
+
+        var down = document.createElement("span");
+        down.classList.add("icon-chevron-down");
+        containerTweet.insertBefore(down, textTag);
+
+        // Añadiendole un evento a la flechita :v
+        // Primero creemos el menú que se verá al hacerle click
+
+        var dropdownMenu = document.createElement("div");
+        dropdownMenu.classList.add("dropdown-menu", "invisible-menu");
+        var deleteSpan = document.createElement("span");
+        var deleteText = document.createTextNode("Delete Tweet");
+        deleteSpan.appendChild(deleteText);
+        dropdownMenu.appendChild(deleteSpan);
+        containerTweet.appendChild(dropdownMenu);
+
+        down.addEventListener("click", function() {
+            dropdownMenu.classList.toggle("invisible-menu");
+        });
+
+        window.addEventListener("mouseup", function(event) {
+            if (event.target != dropdownMenu) {
+                dropdownMenu.classList.add("invisible-menu");
+            }
+        });
+
+        // Añadiendo un contenedor para los íconos
+
+        var containerIcons = document.createElement("div");
+        containerIcons.classList.add("container-icons");
+        containerTweet.appendChild(containerIcons);
+
         // Añadiendo icono de comentario
         var comment = document.createElement("span");
         comment.classList.add("icon-comment-o", "tweet-icons");
-        containerTweet.appendChild(comment);
+        containerIcons.appendChild(comment);
 
         // Añadiendo el icono de retweet
         var retweet = document.createElement("span");
         retweet.classList.add("icon-retweet", "tweet-icons");
-        containerTweet.appendChild(retweet);
+        containerIcons.appendChild(retweet);
 
         // Añadiendo el corazón
         var heart = document.createElement("span");
         heart.classList.add("icon-heart-o", "tweet-icons");
-        containerTweet.appendChild(heart);
+        containerIcons.appendChild(heart);
+
+        // Añadiendole al corazón una función para que cuando alguien haga clic
+        // Se convierta en el corazón relleno y sea de color rojo
+        heart.addEventListener("click", function() {
+            heart.classList.toggle("icon-heart-o");
+            heart.classList.toggle("icon-heart");
+            heart.classList.toggle("red");
+        });
 
         // Limpiar el área luego de que el tweet se envía
         document.getElementById("tweet-here").value = "";
@@ -167,6 +210,6 @@ function tweetPublish() {
         spanCounter.innerHTML = 140;
         spanCounter.style.color = "#1DA1F2";
         // Haciendo desaparecer el modal
-        myModal.style.display = "none";
+        myModal.classList.toggle("invisible");
     };
 };
