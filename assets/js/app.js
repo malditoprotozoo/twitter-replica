@@ -9,6 +9,8 @@ var tweetsSection = document.getElementById("tweets");
 var spanCounter = document.getElementById("counter");
 var name = document.getElementById("title-name").textContent;
 var nickname = document.getElementById("nick").textContent;
+var counter = Number(document.getElementById("tweet-counter").textContent);
+var likes = Number(document.getElementById("likes").textContent);
 
 // var tweetHereContent = document.getElementById("tweet-here").value;
 
@@ -181,6 +183,8 @@ function tweetPublish() {
 
         dropdownMenu.addEventListener("click", function() {
             tweetsSection.removeChild(containerTweet);
+            counter--;
+            document.getElementById("tweet-counter").innerHTML = counter;
         });
 
         // Añadiendo un contenedor para los íconos
@@ -199,6 +203,10 @@ function tweetPublish() {
         retweet.classList.add("icon-retweet", "tweet-icons");
         containerIcons.appendChild(retweet);
 
+        // Añadiendo una función para que retweet cambie de color
+        retweet.addEventListener("click", function() {
+            retweet.classList.toggle("light-blue");
+        });
         // Añadiendo el corazón
         var heart = document.createElement("span");
         heart.classList.add("icon-heart-o", "tweet-icons");
@@ -210,6 +218,12 @@ function tweetPublish() {
             heart.classList.toggle("icon-heart-o");
             heart.classList.toggle("icon-heart");
             heart.classList.toggle("red");
+            if (heart.classList.contains("red")) {
+                likes++;
+            } else {
+                likes--
+            };
+            document.getElementById("likes").innerHTML = likes;
         });
 
         // Limpiar el área luego de que el tweet se envía
@@ -219,5 +233,12 @@ function tweetPublish() {
         spanCounter.style.color = "#1DA1F2";
         // Haciendo desaparecer el modal
         myModal.classList.toggle("invisible");
+
+        // Para que la área de texto vuelva a su tamaño
+        tweetHere.style.cssText = "height: 110px;";
+
+        // Para que aumente el contador de tweets
+        counter++;
+        document.getElementById("tweet-counter").innerHTML = counter;
     };
 };

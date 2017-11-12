@@ -90,8 +90,8 @@ a:hover {
 }
 
 #nav-left ul li a:hover {
-	color: #1da1f2;
-	border-bottom: 2px solid #1da1f2;
+	color: #1DA1F2;
+	border-bottom: 2px solid #1DA1F2;
 }
 
 #nav-left ul li span {
@@ -258,6 +258,46 @@ a:hover {
 	box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
 }
 
+#profile-details ul {
+	list-style-type: none;
+	margin-left: 450px;
+}
+
+#profile-details li {
+	display: inline-block;
+	margin-right: 12px;
+	text-align: center;
+}
+
+#profile-details ul a {
+	font-size: 13px;
+	font-weight: 700;
+	color: #657786;
+	display: block;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	transition: all .15s ease-in-out;
+}
+
+#profile-details ul a:hover {
+	cursor: pointer;
+	border-bottom: 2px solid #1DA1F2;
+	transition: all .15s ease-in-out;
+	text-decoration: none;
+}
+
+#profile-details span {
+	display: block;
+	width: 40px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+#profile-details span:hover {
+	color: #1DA1F2;
+}
+
 #profile {
 	width: 290px;
 	height: auto;
@@ -312,7 +352,7 @@ a:hover {
 	height: auto;
 	position: absolute;
 	top: 426px;
-	left: 500px;
+	left: 450px;
 }
 
 #myModal {
@@ -435,7 +475,7 @@ a:hover {
 .tweeted {
 	width: 100%;
 	height: auto;
-	min-height: 100px;
+	min-height: 110px;
 	display: block;
 	padding: 20px;
 	background-color: white;
@@ -489,6 +529,18 @@ a:hover {
 	cursor: pointer;
 }
 
+.light-blue {
+	color: #1DA1F2;
+}
+
+.icon-retweet:hover, .icon-comment-o:hover {
+	color: #1DA1F2;
+}
+
+.icon-heart-o:hover {
+	color: red;
+}
+
 .container-icons {
 	float: right;
 	margin-top: -15px;
@@ -509,6 +561,8 @@ a:hover {
 .icon-chevron-down:hover {
 	color: #1DA1F2;
 }
+
+/* La forma de este menú fue creada con: http://ilikepixels.co.uk/bubbler-css-speech-bubble-generator/ */
 
 .dropdown-menu {
 	position: relative;
