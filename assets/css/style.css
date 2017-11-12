@@ -10,6 +10,7 @@
 body {
 	background-color: #E6ECF0;
 	font-family: "Open Sans", sans-serif;
+	color: #14171A;
 }
 
 /* Cambiar el estilo del scrollbar */
@@ -87,11 +88,13 @@ a:hover {
 	display: block;
 	margin-right: 14px;
 	padding-bottom: 14px;
+	transition: all .15s ease-in-out;
 }
 
 #nav-left ul li a:hover {
 	color: #1DA1F2;
 	border-bottom: 2px solid #1DA1F2;
+	transition: all .15s ease-in-out;
 }
 
 #nav-left ul li span {
@@ -260,7 +263,7 @@ a:hover {
 
 #profile-details ul {
 	list-style-type: none;
-	margin-left: 450px;
+	margin-left: 400px;
 }
 
 #profile-details li {
@@ -352,7 +355,88 @@ a:hover {
 	height: auto;
 	position: absolute;
 	top: 426px;
-	left: 450px;
+	left: 400px;
+}
+
+#who-to-follow {
+	width: 250px;
+	height: 370px;
+	background-color: white;
+	position: absolute;
+	top: 426px;
+	left: 1030px;
+	padding: 12px;
+	overflow: hidden;
+}
+
+#follow-title h3 {
+	font-size: 18px;
+	color: #14171A;
+}
+
+.follow-this {
+	width: 100%;
+	height: 89px;
+	margin-top: 10px;
+	border-bottom: 1px solid #E6ECF0;
+}
+
+.follow-this button {
+	width: 89px;
+	display: block;
+	margin-top: 5px;
+	text-align: center;
+	border: 1px solid #1DA1F2;
+	border-radius: 100px;
+	color: #1DA1F2;
+	background-color: white;
+	font-size: 12px;
+	padding: 4px 12px;
+	outline: none;
+	font-weight: 700;
+	transition: box-shadow .15s ease-in-out;
+}
+
+.follow-this button:focus {
+	box-shadow: 0 0 0 2px #FFFFFF, 
+				0 0 0 4px rgba(29,161,242,0.4);
+}
+
+.follow-this button:hover {
+	background-color: #E8F5FD;
+}
+
+.follow-this::before {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	content: "";
+	float: left;
+	overflow: auto;
+	background-size: 50px;
+	margin-right: 20px;
+}
+
+#tony-stark::before {
+	background-image: url('../images/ironman.jpg');
+}
+
+#cap-america::before {
+	background-image: url('../images/captain.jpg');
+}
+
+#laboratoria::before {
+	background-image: url('../images/laboratoria.jpg');
+}
+
+button.following-already {
+	background-color: #1DA1F2;
+	color: white;
+}
+
+button.following-already:hover {
+	border: 1px solid red;
+	background-color: red;
 }
 
 #myModal {

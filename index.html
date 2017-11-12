@@ -60,8 +60,9 @@
 						<div id="profile-picture-full"></div>
 						<div id="profile-details">
 							<ul id="profile-nav">
-										<li><a href="#">Tweets <span id="tweet-counter">0</span></a></li>
-										<li><a href="#">Likes <span id="likes">0</span></a></li>
+								<li><a href="#">Tweets <span id="tweet-counter">0</span></a></li>
+								<li><a href="#">Likes <span id="likes">0</span></a></li>
+								<li><a href="#">Following <span id="following">0</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -78,6 +79,27 @@
 					<!-- Acá irán los tweets -->
 					<div id="tweets">
 						
+					</div>
+					
+					<div id="who-to-follow">
+						<div id="follow-title">
+							<h3>Who to follow</h3>
+						</div>
+						<div class="follow-this" id="tony-stark">
+							<span class="name">Tony Stark</span>
+							<span class="nickname">@Iron_Man</span>
+							<button onclick="follow(this)" onmouseover="unfollow(this)" onmouseout="followingNow(this)">Follow</button>
+						</div>
+						<div class="follow-this" id="cap-america">
+							<span class="name">Captain America</span>
+							<span class="nickname">@CaptainAmerica</span>
+							<button onclick="follow(this)" onmouseover="unfollow(this)" onmouseout="followingNow(this)">Follow</button>
+						</div>
+						<div class="follow-this" id="laboratoria">
+							<span class="name">Laboratoria LatAm</span>
+							<span class="nickname">@LaboratoriaLA</span>
+							<button onclick="follow(this)" onmouseover="unfollow(this)" onmouseout="followingNow(this)">Follow</button>
+						</div>
 					</div>
 					<!-- Este es el modal que se abrirá al hacer clic en el botón Tweet -->
 					<div id="myModal" class="modal invisible">

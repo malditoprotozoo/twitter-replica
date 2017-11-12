@@ -11,6 +11,7 @@ var name = document.getElementById("title-name").textContent;
 var nickname = document.getElementById("nick").textContent;
 var counter = Number(document.getElementById("tweet-counter").textContent);
 var likes = Number(document.getElementById("likes").textContent);
+var following = Number(document.getElementById("following").textContent);
 
 // var tweetHereContent = document.getElementById("tweet-here").value;
 
@@ -235,10 +236,38 @@ function tweetPublish() {
         myModal.classList.toggle("invisible");
 
         // Para que la área de texto vuelva a su tamaño
-        tweetHere.style.cssText = "height: 110px;";
+        tweetHere.style.cssText = "height: 80px;";
 
         // Para que aumente el contador de tweets
         counter++;
         document.getElementById("tweet-counter").innerHTML = counter;
+    };
+};
+
+// Añadiendo la función de los botones de seguir
+
+function follow(button) {
+    button.classList.toggle("following-already");
+
+    if (button.classList.contains("following-already")) {
+        following++;
+        button.innerHTML = "Following";
+    } else {
+        following--;
+        button.innerHTML = "Follow";
+    };
+
+    document.getElementById("following").innerHTML = following;
+};
+
+function followingNow(button) {
+    if (button.classList.contains("following-already")) {
+        button.innerHTML = "Following";
+    };
+};
+
+function unfollow(button) {
+    if (button.classList.contains("following-already")) {
+        button.innerHTML = "Unfollow";
     };
 };
