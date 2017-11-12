@@ -43,19 +43,19 @@ function countChars(textbox, counter, max) {
     // Si el contador es igual o menor a cero
     if (count <= 0) {
         spanCounter.style.color = "#B90504";
-    };
+    }
     // Si el contador es mayor a 0, pero menor o igual a 10
     if (count > 0 && count <= 10) {
         spanCounter.style.color = "#FA6900";
-    };
+    }
     // Si el contador es mayor a 10, pero menor o igual a 20
     if (count > 10 && count <= 20) {
         spanCounter.style.color = "#FFBF00";
-    };
+    }
     // Si el contador es mayor a 20
     if (count > 20) {
         spanCounter.style.color = "#1DA1F2";
-    };
+    }
 
     // Si el contador es distinto de 140 y mayor a cero, el botón está habilitado
     if (count !== 140 && count >= 0) {
@@ -63,8 +63,8 @@ function countChars(textbox, counter, max) {
         // En caso contrario, está deshabilitado
     } else {
         publishButton.disabled = true;
-    };
-};
+    }
+}
 
 // Hacer que la área de texto se agrande y disminuya
 
@@ -126,7 +126,7 @@ function tweetPublish() {
             hour = "0" + hour.toString();
         } else {
             hour = hour.toString();
-        };
+        }
 
         var minutes = date.getMinutes();
 
@@ -134,7 +134,7 @@ function tweetPublish() {
             minutes = "0" + minutes.toString();
         } else {
             minutes = minutes.toString();
-        };
+        }
 
         var seconds = date.getSeconds();
 
@@ -142,7 +142,7 @@ function tweetPublish() {
             seconds = "0" + seconds.toString();
         } else {
             seconds = seconds.toString();
-        };
+        }
 
         var textTime = document.createTextNode(day + "/" + month + "/" + year + " " + hour + ":" + minutes + ":" + seconds);
         var containerTime = document.createElement("span");
@@ -153,30 +153,33 @@ function tweetPublish() {
 
         // Añadiendo la flechita hacía abajo xd
 
+        var downContainer = document.createElement("div");
         var down = document.createElement("span");
         down.classList.add("icon-chevron-down");
-        containerTweet.insertBefore(down, textTag);
+        downContainer.appendChild(down);
+        downContainer.classList.add("icon-down-container");
+        containerTweet.insertBefore(downContainer, textTag);
 
         // Añadiendole un evento a la flechita :v
         // Primero creemos el menú que se verá al hacerle click
 
         var dropdownMenu = document.createElement("div");
-        dropdownMenu.classList.add("dropdown-menu", "invisible-menu");
+        dropdownMenu.classList.add("dropdown-menu", "invisible");
         var deleteSpan = document.createElement("span");
         var deleteText = document.createTextNode("Delete Tweet");
         deleteSpan.appendChild(deleteText);
         dropdownMenu.appendChild(deleteSpan);
-        containerTweet.appendChild(dropdownMenu);
+        downContainer.appendChild(dropdownMenu);
 
         down.addEventListener("click", function() {
-            dropdownMenu.classList.toggle("invisible-menu");
+            dropdownMenu.classList.toggle("invisible");
         });
 
         // Si clickeas afuera del menú, este se cerrará
 
         window.addEventListener("mouseup", function(event) {
             if (event.target != dropdownMenu) {
-                dropdownMenu.classList.add("invisible-menu");
+                dropdownMenu.classList.add("invisible");
             }
         });
 
@@ -222,8 +225,8 @@ function tweetPublish() {
             if (heart.classList.contains("red")) {
                 likes++;
             } else {
-                likes--
-            };
+                likes--;
+            }
             document.getElementById("likes").innerHTML = likes;
         });
 
@@ -241,8 +244,8 @@ function tweetPublish() {
         // Para que aumente el contador de tweets
         counter++;
         document.getElementById("tweet-counter").innerHTML = counter;
-    };
-};
+    }
+}
 
 // Añadiendo la función de los botones de seguir
 
@@ -255,19 +258,19 @@ function follow(button) {
     } else {
         following--;
         button.innerHTML = "Follow";
-    };
+    }
 
     document.getElementById("following").innerHTML = following;
-};
+}
 
 function followingNow(button) {
     if (button.classList.contains("following-already")) {
         button.innerHTML = "Following";
-    };
-};
+    }
+}
 
 function unfollow(button) {
     if (button.classList.contains("following-already")) {
         button.innerHTML = "Unfollow";
-    };
-};
+    }
+}
